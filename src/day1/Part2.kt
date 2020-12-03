@@ -1,11 +1,12 @@
 package day1
 
+import loadFileToIntArray
 import java.io.File
 import java.net.URI
 
 internal class Part2 {
 
-    val numbers = mutableSetOf<Int>()
+    private val numbers = mutableSetOf<Int>()
 
     fun run(): Int {
         readNumbersFromFile()
@@ -13,11 +14,8 @@ internal class Part2 {
     }
 
     private fun readNumbersFromFile() {
-        val fileUrl = javaClass.getResource("input.txt")
-        val fileUri = URI(fileUrl.toString())
-        File(fileUri).useLines {
-            it.forEach {number -> numbers.add(number.toInt()) }
-        }
+        val entries = loadFileToIntArray("/day1/input.txt")
+        entries.forEach {number -> numbers.add(number) }
     }
 
     private fun process(): Int {

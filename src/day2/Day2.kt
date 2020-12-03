@@ -1,28 +1,17 @@
 package day2
 
+import loadFileToStringArray
 import printAsHeader
-import java.io.File
-import java.net.URI
 
 class Day2 {
 
     fun run() {
-        val entries = loadFromFile()
+        val entries = loadFileToStringArray("/day2/input.txt")
         val oldPolicyCount = processEntriesWithOldPolicy(entries)
         val newPolicyCount = processEntriesWithNewPolicy(entries)
         "Day2".printAsHeader()
         println("Valid passwords according to old policy is: $oldPolicyCount")
         println("Valid passwords according to new policy is: $newPolicyCount")
-    }
-
-    private fun loadFromFile(): ArrayList<String> {
-        val entries = arrayListOf<String>()
-        val fileUrl = Day2::class.java.getResource("input.txt")
-        val fileUri = URI(fileUrl.toString())
-        File(fileUri).readLines().forEach {
-            entries.add(it)
-        }
-        return entries
     }
 
     private fun processEntriesWithOldPolicy(entries: ArrayList<String>): Int {

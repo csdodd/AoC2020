@@ -1,8 +1,7 @@
 package day3
 
+import loadFileToStringArray
 import printAsHeader
-import java.io.File
-import java.net.URI
 
 class Day3 {
     private var currentPosition = Position()
@@ -33,12 +32,7 @@ class Day3 {
     }
 
     private fun loadGridFromFile(): ArrayList<List<MapMarker>> {
-        val input = arrayListOf<String>()
-        val fileUrl = Day3::class.java.getResource("input.txt")
-        val fileUri = URI(fileUrl.toString())
-        File(fileUri).readLines().forEach {
-            input.add(it)
-        }
+        val input = loadFileToStringArray("/day3/input.txt")
         return convertInputToGrid(input)
     }
 
