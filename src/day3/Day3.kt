@@ -64,7 +64,7 @@ class Day3 {
             mapMarkers.add(grid[currentPosition.row][currentPosition.col])
         }
 
-        return mapMarkers.filter { it.isTree() }.size
+        return mapMarkers.filter { it.type == Type.Tree }.size
     }
 
     private fun convertInputToGrid(input: ArrayList<String>): ArrayList<List<MapMarker>> {

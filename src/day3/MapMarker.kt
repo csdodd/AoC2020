@@ -1,7 +1,10 @@
 package day3
 
-data class MapMarker (
-        val contents: Char
-) {
-    fun isTree() = contents == '#'
+class MapMarker (contents: Char) {
+    val type = if (contents == '#') Type.Tree else Type.Open
+}
+
+enum class Type {
+    Tree,
+    Open
 }
