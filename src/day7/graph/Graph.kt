@@ -3,7 +3,7 @@ package day7.graph
 import day7.Bag
 import java.util.ArrayList
 
-class Graph(val input: ArrayList<String>) {
+class Graph(input: ArrayList<String>) {
 
     private val graph = mutableSetOf<Node>()
     private var runningTotal: Int = 0
@@ -65,13 +65,7 @@ class Graph(val input: ArrayList<String>) {
     }
 
     private fun countNumberOfChildren(node: Node, amount: Int = 1): Int {
-        if (node.contents.isEmpty()) return 1
-
-        runningTotal += amount * node.contentCount()
-
-        node.contents.forEach {
-            runningTotal += countNumberOfChildren(it.node, it.count)
-        }
-        return runningTotal
+        if (node.contents.isEmpty()) return 0
+        return node.contentCount() + (node.contents.sumBy { it.count * countNumberOfChildren(it.node, it.count) })
     }
 }

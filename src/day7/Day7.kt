@@ -11,11 +11,11 @@ class Day7 {
     fun run() {
         "Day7".printAsHeader()
         test()
-        //realData()
+        realData()
     }
 
     private fun test() {
-        val input = loadFileToStringArray("/day7/example2.txt")
+        val input = loadFileToStringArray("/day7/example.txt")
         val graph = Graph(input)
         println("Number of potential gold containers in test data is ${graph.countNumberOfGoldContainers()}")
         println("Number of gold contents in test data is ${graph.countNumberOfGoldContents()}")
