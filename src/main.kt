@@ -1,8 +1,8 @@
-import day7.Day7
+import day8.Day8
 
 
 fun main(args: Array<String>) {
-    Day7().run()
+    Day8().run()
 }
 
 fun String.printAsHeader() {
