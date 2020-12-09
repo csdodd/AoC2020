@@ -22,3 +22,12 @@ fun loadFileToIntArray(name: String): ArrayList<Int> {
     }
     return lines
 }
+
+fun loadFileToLongArray(name: String): ArrayList<Long> {
+    val lines = arrayListOf<Long>()
+    val uri = URI(getResource(name).toString())
+    File(uri).readLines().forEach {
+        lines.add(it.toLong())
+    }
+    return lines
+}
