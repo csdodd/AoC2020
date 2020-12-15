@@ -14,6 +14,10 @@ fun loadFileToStringArray(name: String): ArrayList<String> {
     return lines
 }
 
+fun loadFileToIntArrayFromSingleLineCSV(name: String): List<Int> {
+    return loadFileToStringArray(name).first().split(",").map { it.toInt() }
+}
+
 fun loadFileToIntArray(name: String): ArrayList<Int> {
     val lines = arrayListOf<Int>()
     val uri = URI(getResource(name).toString())
