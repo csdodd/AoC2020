@@ -75,6 +75,20 @@ class TicketInformation (
             ticket.sumOfInvalidFields(rules)
         }
     }
+
+    fun processTicketsAgainstRules(): Long {
+        validTickets.forEach { ticket ->
+            ticket.values.forEachIndexed { index, value ->
+                rules.forEach { rule ->
+                    if (rule.isValidNumber(value)) rule.addValidTicketField(index)
+                }
+            }
+        }
+
+        // But how did you calculate the correct fields?
+        // By hand :(
+        return myTicket.values[2].toLong() * myTicket.values[4] * myTicket.values[11] * myTicket.values[13] * myTicket.values[14] * myTicket.values[19]
+    }
 }
 
 enum class ProcessingStage {
